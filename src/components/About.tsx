@@ -34,7 +34,7 @@ const AnimatedCounter = ({ value, suffix }: { value: number; suffix: string }) =
     return () => observer.disconnect();
   }, [value]);
 
-  return <div ref={ref} className="text-4xl md:text-5xl font-heading font-bold gradient-text">{display}{suffix}</div>;
+  return <div ref={ref} className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold gradient-text">{display}{suffix}</div>;
 };
 
 const About = () => (
@@ -42,7 +42,7 @@ const About = () => (
     <div className="container mx-auto">
       <SectionTitle badge="About Us" title="We're on a mission to" gradientTitle="redefine digital." description="AI X Dimension is a full-service digital agency that combines strategy, design, and engineering to build products people love." />
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 md:mb-16">
         {stats.map((s, i) => (
           <motion.div
             key={s.label}
@@ -51,7 +51,7 @@ const About = () => (
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
           >
-            <GlassCard className="text-center py-8">
+            <GlassCard className="text-center py-6 md:py-8 px-4">
               <AnimatedCounter value={s.value} suffix={s.suffix} />
               <p className="text-sm text-muted-foreground mt-2">{s.label}</p>
             </GlassCard>

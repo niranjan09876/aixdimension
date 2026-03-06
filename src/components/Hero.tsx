@@ -10,7 +10,7 @@ const Hero = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-white text-4xl md:text-6xl lg:text-7xl font-bold tracking-widest leading-none mb-2 md:mb-4"
+            className="text-white text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-widest leading-none mb-2 md:mb-4"
           >
             AI
           </motion.span>
@@ -32,7 +32,7 @@ const Hero = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="text-white text-6xl md:text-8xl lg:text-[10rem] font-semibold leading-none"
+              className="text-white text-7xl sm:text-8xl md:text-[10rem] lg:text-[14rem] font-semibold leading-none"
             >
               X
             </motion.span>
@@ -49,7 +49,7 @@ const Hero = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-white text-4xl md:text-6xl lg:text-7xl font-bold tracking-widest leading-none mb-2 md:mb-4"
+            className="text-white text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-widest leading-none mb-2 md:mb-4"
           >
             DIMENSION
           </motion.span>
@@ -59,10 +59,11 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-6 md:mt-10 text-gray-300 tracking-[0.2em] md:tracking-[0.3em] text-sm md:text-xl font-light"
+          className="mt-0 md:mt-2 text-gray-300 tracking-[0.2em] md:tracking-[0.3em] text-base md:text-2xl font-light"
         >
           Future Dimensions
         </motion.p>
+
 
       </div>
     </section>

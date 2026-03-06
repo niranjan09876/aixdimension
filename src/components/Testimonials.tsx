@@ -30,13 +30,13 @@ const Testimonials = () => {
               exit={{ opacity: 0, x: -40 }}
               transition={{ duration: 0.35 }}
             >
-              <GlassCard hover={false} className="text-center py-10">
+              <GlassCard hover={false} className="text-center py-8 md:py-10 px-4 md:px-10">
                 <div className="flex justify-center gap-1 mb-4">
                   {Array.from({ length: t.rating }).map((_, i) => (
                     <Star key={i} size={18} className="fill-primary text-primary" />
                   ))}
                 </div>
-                <p className="text-lg leading-relaxed mb-6 italic">"{t.text}"</p>
+                <p className="text-base md:text-lg leading-relaxed mb-6 italic">"{t.text}"</p>
                 <div className="w-12 h-12 rounded-full gradient-bg mx-auto mb-3 flex items-center justify-center text-primary-foreground font-bold">
                   {t.name[0]}
                 </div>

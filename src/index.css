@@ -92,7 +92,7 @@
     mask-composite: exclude;
   }
   .section-padding {
-    @apply py-20 md:py-32 px-4 md:px-8;
+    @apply py-16 lg:py-32 px-4 md:px-8;
   }
   .hover-glow {
     @apply transition-all duration-300;

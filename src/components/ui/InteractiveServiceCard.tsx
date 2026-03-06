@@ -2,11 +2,13 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import GlassCard from "./GlassCard";
+import { ArrowRight } from "lucide-react";
 
 interface InteractiveServiceCardProps {
     icon: React.ElementType;
     title: string;
     desc: string;
+    image?: string;
     details?: string[];
     className?: string;
 }
@@ -15,6 +17,7 @@ export const InteractiveServiceCard = ({
     icon: Icon,
     title,
     desc,
+    image,
     details = ["Strategy", "Design", "Development", "Launch"],
     className,
 }: InteractiveServiceCardProps) => {
@@ -65,7 +68,14 @@ export const InteractiveServiceCard = ({
                 hover={false}
                 className="relative z-10 h-full flex flex-col justify-start overflow-hidden transition-all duration-300 group-hover:bg-black/90 group-hover:border-primary/50"
             >
-                <div style={{ transform: "translateZ(30px)" }} className="flex flex-col h-full">
+                {image && (
+                    <div
+                        className="absolute inset-0 z-0 opacity-5 group-hover:opacity-20 transition-opacity duration-500 bg-cover bg-center"
+                        style={{ backgroundImage: `url(${image})` }}
+                    />
+                )}
+
+                <div style={{ transform: "translateZ(30px)" }} className="flex flex-col h-full relative z-10">
                     <motion.div
                         animate={{ scale: isHovered ? 1.1 : 1, rotate: isHovered ? 5 : 0 }}
                         className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-5"
@@ -92,8 +102,9 @@ export const InteractiveServiceCard = ({
                                     </li>
                                 ))}
                             </ul>
-                            <button className="mt-4 text-xs font-medium text-white bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition-colors w-full">
-                                Learn More
+                            <button className="mt-4 flex items-center justify-center gap-2 text-xs font-medium text-white bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition-colors w-full group/btn">
+                                <span>Learn More</span>
+                                <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
                             </button>
                         </div>
                     </motion.div>

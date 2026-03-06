@@ -66,7 +66,7 @@ export const FeaturePanel = ({
                 </motion.div>
 
                 <motion.div
-                    className={cn("relative w-full aspect-square md:aspect-video lg:aspect-[4/3] rounded-2xl overflow-hidden glass-card flex items-center justify-center p-8 bg-black/40", reversed && "lg:order-1")}
+                    className={cn("relative w-full aspect-square md:aspect-video lg:aspect-[4/3] rounded-2xl overflow-hidden glass-card flex items-center justify-center bg-black/40 p-0", reversed && "lg:order-1")}
                     variants={{
                         hidden: { opacity: 0, scale: 0.9, y: 30 },
                         visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },

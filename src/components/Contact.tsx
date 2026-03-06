@@ -37,11 +37,11 @@ const Contact = () => {
           >
             <GlassCard hover={false}>
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input {...register("name", { required: true })} placeholder="Your Name" className={inputClasses} />
                   <input {...register("email", { required: true })} type="email" placeholder="Email Address" className={inputClasses} />
                 </div>
-                <div className="grid sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input {...register("phone")} placeholder="Phone (optional)" className={inputClasses} />
                   <select {...register("service")} className={inputClasses}>
                     <option value="">Select Service</option>
