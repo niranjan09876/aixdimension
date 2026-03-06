@@ -1,77 +1,69 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
-import HeroScene from "./HeroScene";
 
 const Hero = () => {
-  const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <HeroScene />
+    <section className="relative min-h-screen bg-black flex flex-col items-center justify-center overflow-hidden font-sans">
+      <div className="z-10 text-center flex flex-col items-center justify-center">
+        
+        <div className="flex items-end justify-center space-x-4 md:space-x-6 mb-4">
+          <motion.span 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-white text-4xl md:text-6xl lg:text-7xl font-bold tracking-widest leading-none mb-2 md:mb-4"
+          >
+            AI
+          </motion.span>
+          
+          <div className="flex flex-col items-center justify-center relative">
+            <motion.span 
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ 
+                opacity: 1, 
+                scale: [1, 1.05, 1],
+                textShadow: [
+                  "0px 0px 0px rgba(255,255,255,0)", 
+                  "0px 0px 20px rgba(255,255,255,0.4)", 
+                  "0px 0px 0px rgba(255,255,255,0)"
+                ]
+              }}
+              transition={{ 
+                duration: 3, 
+                repeat: Infinity,
+                ease: "easeInOut" 
+              }}
+              className="text-white text-6xl md:text-8xl lg:text-[10rem] font-semibold leading-none"
+            >
+              X
+            </motion.span>
+            {/* The underline */}
+            <motion.div 
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="h-[3px] md:h-[4px] bg-white w-[80%] absolute -bottom-2 md:-bottom-4"
+            />
+          </div>
 
-      {/* Gradient mesh background */}
-      <div className="absolute inset-0 -z-20">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/20 blur-[120px] animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-secondary/20 blur-[120px] animate-float" style={{ animationDelay: "2s" }} />
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 rounded-full bg-accent/10 blur-[100px] animate-float" style={{ animationDelay: "4s" }} />
-      </div>
+          <motion.span 
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-white text-4xl md:text-6xl lg:text-7xl font-bold tracking-widest leading-none mb-2 md:mb-4"
+          >
+            DIMENSIONS
+          </motion.span>
+        </div>
 
-      <div className="container mx-auto px-4 text-center relative z-10 pt-20">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-6"
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mt-6 md:mt-10 text-gray-300 tracking-[0.2em] md:tracking-[0.3em] text-sm md:text-xl font-light"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium glass-card">
-            🚀 We build digital products that matter
-          </span>
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.15 }}
-          className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.05]"
-        >
-          Crafting Digital
-          <br />
-          <span className="gradient-text">Experiences</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
-        >
-          We design and build world-class digital products, brands, and experiences
-          that drive growth for ambitious startups and enterprises.
+          Future Dimensions
         </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.45 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => scrollTo("contact")}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-semibold gradient-bg text-primary-foreground text-lg"
-          >
-            Start a Project <ArrowRight size={20} />
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => scrollTo("portfolio")}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-semibold glass-card text-lg"
-          >
-            <Play size={18} /> View Our Work
-          </motion.button>
-        </motion.div>
+        
       </div>
     </section>
   );
