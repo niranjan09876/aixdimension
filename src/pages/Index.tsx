@@ -1,7 +1,7 @@
 import ScrollProgress from "@/components/ScrollProgress";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import TrustedCompanies from "@/components/TrustedCompanies";
+
 import About from "@/components/About";
 import Services from "@/components/Services";
 import Industries from "@/components/Industries";
@@ -18,7 +18,7 @@ const Index = () => (
     <ScrollProgress />
     <Navbar />
     <Hero />
-    <TrustedCompanies />
+
     <About />
     <Services />
     <Industries />
