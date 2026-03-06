@@ -1,14 +1,35 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import ScrollProgress from "@/components/ScrollProgress";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import TrustedCompanies from "@/components/TrustedCompanies";
+import About from "@/components/About";
+import Services from "@/components/Services";
+import Industries from "@/components/Industries";
+import Portfolio from "@/components/Portfolio";
+import Process from "@/components/Process";
+import Testimonials from "@/components/Testimonials";
+import Careers from "@/components/Careers";
+import Locations from "@/components/Locations";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
-const Index = () => {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
-  );
-};
+const Index = () => (
+  <>
+    <ScrollProgress />
+    <Navbar />
+    <Hero />
+    <TrustedCompanies />
+    <About />
+    <Services />
+    <Industries />
+    <Portfolio />
+    <Process />
+    <Testimonials />
+    <Careers />
+    <Locations />
+    <Contact />
+    <Footer />
+  </>
+);
 
 export default Index;
