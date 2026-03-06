@@ -18,7 +18,7 @@ const Testimonials = () => {
   const t = testimonials[idx];
 
   return (
-    <section id="testimonials" className="section-padding bg-muted/30">
+    <section id="testimonials" className="section-padding">
       <div className="container mx-auto">
         <SectionTitle badge="Testimonials" title="What clients" gradientTitle="say." description="Don't just take our word for it — hear from the people we've worked with." />
         <div className="max-w-2xl mx-auto">

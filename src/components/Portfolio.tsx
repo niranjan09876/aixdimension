@@ -12,7 +12,7 @@ const projects = [
 ];
 
 const Portfolio = () => (
-  <section id="portfolio" className="section-padding bg-muted/30">
+  <section id="portfolio" className="section-padding">
     <div className="container mx-auto">
       <SectionTitle badge="Portfolio" title="Our recent" gradientTitle="work." description="A glimpse into the projects that showcase our craft and impact." />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

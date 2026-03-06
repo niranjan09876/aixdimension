@@ -13,7 +13,7 @@ const services = [
 ];
 
 const Services = () => (
-  <section id="services" className="section-padding bg-muted/30">
+  <section id="services" className="section-padding">
     <div className="container mx-auto">
       <SectionTitle badge="Services" title="What we" gradientTitle="deliver." description="End-to-end digital solutions tailored to your unique challenges and goals." />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

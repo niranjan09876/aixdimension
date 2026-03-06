@@ -11,7 +11,7 @@ const offices = [
 ];
 
 const Locations = () => (
-  <section id="locations" className="section-padding bg-muted/30">
+  <section id="locations" className="section-padding">
     <div className="container mx-auto">
       <SectionTitle badge="Global" title="Our" gradientTitle="offices." description="A global team delivering local expertise." />
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
