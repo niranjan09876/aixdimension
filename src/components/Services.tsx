@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Globe, Smartphone, Palette, Cloud, Brain, Target } from "lucide-react";
 import SectionTitle from "./ui/SectionTitle";
-import GlassCard from "./ui/GlassCard";
+import { InteractiveServiceCard } from "./ui/InteractiveServiceCard";
 
 const services = [
   { icon: Globe, title: "Web Development", desc: "Full-stack web applications built with modern frameworks, optimized for performance and scalability." },
@@ -24,14 +24,13 @@ const Services = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.08 }}
+            className="h-full"
           >
-            <GlassCard className="h-full group">
-              <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                <s.icon size={22} className="text-primary-foreground" />
-              </div>
-              <h3 className="font-heading text-lg font-semibold mb-2">{s.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
-            </GlassCard>
+            <InteractiveServiceCard
+              icon={s.icon}
+              title={s.title}
+              desc={s.desc}
+            />
           </motion.div>
         ))}
       </div>
