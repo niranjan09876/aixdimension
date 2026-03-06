@@ -5,10 +5,10 @@ import SectionTitle from "./ui/SectionTitle";
 import GlassCard from "./ui/GlassCard";
 
 const testimonials = [
-  { name: "Sarah Chen", company: "TechVenture Inc.", text: "NexusFlow transformed our digital presence entirely. Their attention to detail and strategic thinking exceeded all our expectations.", rating: 5 },
-  { name: "Marcus Johnson", company: "FinanceFlow", text: "Working with NexusFlow was a game-changer. They delivered a complex financial platform on time and beyond what we imagined.", rating: 5 },
+  { name: "Sarah Chen", company: "TechVenture Inc.", text: "AI X Dimension transformed our digital presence entirely. Their attention to detail and strategic thinking exceeded all our expectations.", rating: 5 },
+  { name: "Marcus Johnson", company: "FinanceFlow", text: "Working with AI X Dimension was a game-changer. They delivered a complex financial platform on time and beyond what we imagined.", rating: 5 },
   { name: "Priya Sharma", company: "HealthHub", text: "The team's expertise in healthcare tech is unmatched. They built us a platform that our patients and doctors genuinely love.", rating: 5 },
-  { name: "David Kim", company: "EduSpark", text: "From concept to launch, NexusFlow was a true partner. Their product strategy helped us find product-market fit faster.", rating: 5 },
+  { name: "David Kim", company: "EduSpark", text: "From concept to launch, AI X Dimension was a true partner. Their product strategy helped us find product-market fit faster.", rating: 5 },
 ];
 
 const Testimonials = () => {

@@ -26,16 +26,15 @@ const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "glass-card border-b rounded-none" : "bg-transparent"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass-card border-b rounded-none" : "bg-transparent"
+          }`}
       >
         <div className="container mx-auto flex items-center justify-between h-16 px-4">
           <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-2 font-heading font-bold text-xl">
             <div className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center">
               <Zap size={16} className="text-primary-foreground" />
             </div>
-            NexusFlow
+            AI X Dimension
           </button>
 
           <div className="hidden md:flex items-center gap-8">

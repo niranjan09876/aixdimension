@@ -40,7 +40,7 @@ const AnimatedCounter = ({ value, suffix }: { value: number; suffix: string }) =
 const About = () => (
   <section id="about" className="section-padding">
     <div className="container mx-auto">
-      <SectionTitle badge="About Us" title="We're on a mission to" gradientTitle="redefine digital." description="NexusFlow is a full-service digital agency that combines strategy, design, and engineering to build products people love." />
+      <SectionTitle badge="About Us" title="We're on a mission to" gradientTitle="redefine digital." description="AI X Dimension is a full-service digital agency that combines strategy, design, and engineering to build products people love." />
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
         {stats.map((s, i) => (

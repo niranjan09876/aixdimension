@@ -9,7 +9,7 @@ const Footer = () => (
             <div className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center">
               <Zap size={16} className="text-primary-foreground" />
             </div>
-            NexusFlow
+            AI X Dimension
           </div>
           <p className="text-sm text-muted-foreground leading-relaxed">
             Crafting digital experiences that drive growth for ambitious companies.
@@ -40,7 +40,7 @@ const Footer = () => (
         ))}
       </div>
       <div className="border-t border-border/50 pt-8 text-center">
-        <p className="text-sm text-muted-foreground">© 2026 NexusFlow. All rights reserved.</p>
+        <p className="text-sm text-muted-foreground">© 2026 AI X Dimension. All rights reserved.</p>
       </div>
     </div>
   </footer>

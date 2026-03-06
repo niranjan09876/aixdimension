@@ -72,7 +72,7 @@ const Contact = () => {
             className="lg:col-span-2 space-y-4"
           >
             {[
-              { icon: Mail, label: "Email", value: "hello@nexusflow.io" },
+              { icon: Mail, label: "Email", value: "hello@AI X Dimension.io" },
               { icon: Phone, label: "Phone", value: "+1 (555) 123-4567" },
               { icon: MapPin, label: "HQ", value: "Hyderabad, India" },
             ].map((c) => (
