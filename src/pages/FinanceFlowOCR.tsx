@@ -2,13 +2,15 @@ import React, { useState, useRef, useCallback } from "react";
 import { Upload, Image as ImageIcon, Loader2, ArrowLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { toast } from "sonner"; // Assuming sonner is used in the app, it was in App.tsx
+import { toast } from "sonner";
 
 const FinanceFlowOCR = () => {
     const [selectedImage, setSelectedImage] = useState<File | null>(null);
     const [imagePreview, setImagePreview] = useState<string | null>(null);
     const [isProcessing, setIsProcessing] = useState(false);
     const [extractedText, setExtractedText] = useState<string>("");
+    const [imagePath, setImagePath] = useState<string | null>(null);
+    const [editedText, setEditedText] = useState<string>("");
     const fileInputRef = useRef<HTMLInputElement>(null);
 
     const handleDragOver = useCallback((e: React.DragEvent) => {
@@ -48,11 +50,11 @@ const FinanceFlowOCR = () => {
         setExtractedText("");
 
         const formData = new FormData();
-        formData.append("image", selectedImage);
+        formData.append("file", selectedImage);
 
         try {
-            // Fast API OCR endpoint
-            const response = await fetch("http://localhost:8000/api/ocr", {
+
+            const response = await fetch("http://127.0.0.1:8000/extract-text", {
                 method: "POST",
                 body: formData,
             });
@@ -62,11 +64,16 @@ const FinanceFlowOCR = () => {
             }
 
             const data = await response.json();
-            setExtractedText(data.text || "No text could be extracted.");
+
+            setExtractedText(data.extracted_text);
+            setEditedText(data.extracted_text);
+            setImagePath(data.image_path);
+
             toast.success("Text extracted successfully!");
+
         } catch (error) {
             console.error(error);
-            toast.error("An error occurred during OCR processing.");
+            toast.error("OCR processing error");
         } finally {
             setIsProcessing(false);
         }
@@ -79,7 +86,7 @@ const FinanceFlowOCR = () => {
             <div className="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/20 blur-[120px] rounded-full mix-blend-screen pointer-events-none" />
 
             {/* Back button */}
-            <div className="w-full max-w-4xl mb-8 z-10">
+            <div className="w-full max-w-[1400px] mb-8 z-10">
                 <Link
                     to="/"
                     className="inline-flex items-center text-white/70 hover:text-white transition-colors duration-200 group relative overflow-hidden px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 glass-card"
@@ -93,7 +100,7 @@ const FinanceFlowOCR = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="w-full max-w-4xl z-10 flex flex-col items-center"
+                className="w-full max-w-[1400px] z-10 flex flex-col items-center"
             >
                 <div className="text-center mb-10">
                     <motion.h1
@@ -102,7 +109,7 @@ const FinanceFlowOCR = () => {
                         transition={{ duration: 0.5, delay: 0.1 }}
                         className="text-4xl md:text-5xl font-bold mb-4 tracking-tight"
                     >
-                        FinanceFlow <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">– AI OCR Tool</span>
+                        Text Flow Tool <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600"></span>
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0 }}
@@ -110,19 +117,19 @@ const FinanceFlowOCR = () => {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="text-gray-400 max-w-xl mx-auto text-lg"
                     >
-                        Upload an image to extract text using AI-powered OCR.
+                        Upload an image to extract the text .
                     </motion.p>
                 </div>
 
-                <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+                <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8 relative mt-4">
                     {/* Card: Upload / Preview Section */}
                     <motion.div
-                        initial={{ opacity: 0, x: -20 }}
+                        initial={{ opacity: 0, x: -40 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
-                        className="bg-[#111] border border-[#222] rounded-2xl p-6 shadow-2xl backdrop-blur-sm flex flex-col"
+                        className="bg-[#111] border border-[#222] rounded-2xl p-8 shadow-2xl backdrop-blur-sm flex flex-col min-h-[600px] lg:min-h-[750px]"
                     >
-                        <h2 className="text-xl font-semibold mb-4 text-gray-200">Image Source</h2>
+                        <h2 className="text-xl font-semibold mb-4 text-gray-200">Upload Image</h2>
 
                         {!imagePreview ? (
                             <div
@@ -145,14 +152,12 @@ const FinanceFlowOCR = () => {
                                 <span className="text-xs text-gray-500">Supports JPG, JPEG, PNG</span>
                             </div>
                         ) : (
-                            <div className="flex-1 flex flex-col relative group rounded-xl overflow-hidden border border-[#333]">
+                            <div className="flex-1 flex flex-col relative group rounded-xl overflow-hidden border border-[#333] min-h-[300px]">
                                 <img
                                     src={imagePreview}
                                     alt="Upload preview"
-                                    className="w-full h-full object-contain bg-black/50 absolute inset-0 max-h-[300px]"
+                                    className="w-full h-full object-contain bg-black/50 absolute inset-0"
                                 />
-                                {/* Maintain aspect ratio padding or absolute height based on design */}
-                                <div className="pt-[75%]"></div>
                                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                     <button
                                         onClick={() => {
@@ -206,13 +211,13 @@ const FinanceFlowOCR = () => {
 
                     {/* Card: Result Section */}
                     <motion.div
-                        initial={{ opacity: 0, x: 20 }}
+                        initial={{ opacity: 0, x: 40 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
-                        className="bg-[#111] border border-[#222] rounded-2xl p-6 shadow-2xl backdrop-blur-sm flex flex-col"
+                        className="bg-[#111] border border-[#222] rounded-2xl p-8 shadow-2xl backdrop-blur-sm flex flex-col min-h-[600px] lg:min-h-[750px]"
                     >
                         <div className="flex justify-between items-center mb-4">
-                            <h2 className="text-xl font-semibold text-gray-200">Extracted Output</h2>
+                            <h2 className="text-xl font-semibold text-gray-200">Output Text</h2>
                             {extractedText && (
                                 <button
                                     onClick={() => {
@@ -226,16 +231,59 @@ const FinanceFlowOCR = () => {
                             )}
                         </div>
 
-                        <div className="flex-1 w-full bg-[#0a0a0a] border border-[#222] rounded-xl p-4 overflow-hidden relative group transition-colors focus-within:border-blue-500/50">
-                            <textarea
-                                className="w-full h-full bg-transparent border-none outline-none resize-none text-gray-300 placeholder:text-gray-600 font-mono text-sm leading-relaxed"
-                                placeholder={isProcessing ? "AI is analyzing your image..." : "Extracted text will appear here..."}
-                                value={extractedText}
-                                readOnly
-                            />
-                            {/* Optional: Add a subtle inner glow on focus for a premium feel */}
-                            <div className="absolute inset-0 pointer-events-none rounded-xl bg-gradient-to-b from-white/[0.02] to-transparent opacity-0 group-focus-within:opacity-100 transition-opacity" />
+                        <div className="flex-1 w-full bg-[#0a0a0a] border border-[#222] rounded-xl p-4 relative group transition-colors focus-within:border-blue-500/50 flex flex-col">
+
+                            <div className="flex-1">
+                                <textarea
+                                    className="w-full h-full bg-transparent border-none outline-none resize-none text-gray-300 placeholder:text-gray-600 font-mono text-sm leading-relaxed"
+                                    placeholder={isProcessing ? "AI is analyzing your image..." : "Extracted text will appear here..."}
+                                    value={editedText}
+                                    onChange={(e) => setEditedText(e.target.value)}
+                                />
+                            </div>
+
+
+
                         </div>
+
+                        {editedText && (<button
+                            onClick={async () => {
+
+                                if (!imagePath) {
+                                    toast.error("No image to save");
+                                    return;
+                                }
+
+                                const formData = new FormData();
+                                formData.append("image_path", imagePath);
+                                formData.append("description", editedText);
+
+                                try {
+
+                                    const response = await fetch("http://127.0.0.1:8000/save-description", {
+                                        method: "POST",
+                                        body: formData
+                                    });
+
+                                    const data = await response.json();
+
+                                    toast.success(data.message || "Saved successfully");
+
+                                } catch (error) {
+
+                                    toast.error("Database save failed");
+
+                                }
+
+                            }}
+                            className={`mt-6 w-full py-3 px-6 rounded-xl font-medium transition-all duration-300 flex items-center justify-center relative overflow-hidden z-10 
+                                ${(!selectedImage || isProcessing)
+                                    ? "bg-[#222] text-gray-500 cursor-not-allowed"
+                                    : "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_25px_rgba(59,130,246,0.5)]"}`}
+                        >
+                            Save Description
+                        </button>
+                        )}
                     </motion.div>
                 </div>
             </motion.div>

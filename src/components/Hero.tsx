@@ -1,70 +1,103 @@
 import { motion } from "framer-motion";
 
 const Hero = () => {
+  // Animation variants
+  const textVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (customDelay: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: customDelay,
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    }),
+  };
+
   return (
-    <section className="relative min-h-screen bg-black flex flex-col items-center justify-center overflow-hidden font-sans">
-      <div className="z-10 text-center flex flex-col items-center justify-center">
+    <section className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden font-sans bg-zinc-900">
+      {/* Background Wipe Animation */}
+      <motion.div
+        initial={{ y: "-100%" }}
+        animate={{ y: "0%" }}
+        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute inset-0 w-full h-full bg-black z-0"
+      />
 
-        <div className="flex items-end justify-center space-x-4 md:space-x-6 mb-4">
-          <motion.span
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-white text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-widest leading-none mb-2 md:mb-4"
-          >
-            AI
-          </motion.span>
+      {/* Main Content */}
+      <div className="relative z-10 flex flex-col items-center justify-center text-white w-full px-4 -translate-y-[40px]">
+        {/* Texts row */}
+        <div className="flex items-baseline justify-center gap-6 whitespace-nowrap translate-y-20">
 
-          <div className="flex flex-col items-center justify-center relative">
+          {/* AI part */}
+          <div className="flex items-baseline gap-6">
             <motion.span
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{
-                opacity: 1,
-                scale: [1, 1.05, 1],
-                textShadow: [
-                  "0px 0px 0px rgba(255,255,255,0)",
-                  "0px 0px 20px rgba(255,255,255,0.4)",
-                  "0px 0px 0px rgba(255,255,255,0)"
-                ]
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="text-white text-7xl sm:text-8xl md:text-[10rem] lg:text-[14rem] font-semibold leading-none"
+              custom={0}
+              variants={textVariant}
+              initial="hidden"
+              animate="visible"
+              className="text-[5.5rem] sm:text-[8rem] md:text-[11rem] lg:text-[13rem] font-bold tracking-tight leading-none"
+            >
+              A
+            </motion.span>
+            <motion.span
+              custom={0}
+              variants={textVariant}
+              initial="hidden"
+              animate="visible"
+              className="text-[3.5rem] sm:text-[5rem] md:text-[7rem] lg:text-[8rem] font-bold tracking-tight leading-none"
+            >
+              I
+            </motion.span>
+          </div>
+
+          {/* X part + underline */}
+          <div className="flex flex-col items-center">
+            <motion.span
+              custom={0.3}
+              variants={textVariant}
+              initial="hidden"
+              animate="visible"
+              className="flex-shrink-0 text-[7rem] sm:text-[10rem] md:text-[14rem] lg:text-[16rem] font-bold leading-none text-center"
             >
               X
             </motion.span>
-            {/* The underline */}
+            {/* Decorative Line under X */}
             <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="h-[3px] md:h-[4px] bg-white w-[80%] absolute -bottom-2 md:-bottom-4"
+              custom={0.4}
+              variants={textVariant}
+              initial="hidden"
+              animate="visible"
+              className="w-[125px] h-[4px] bg-white rounded-[2px] mt-1.5 mx-auto"
             />
           </div>
 
-          <motion.span
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-white text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-widest leading-none mb-2 md:mb-4"
-          >
-            DIMENSION
-          </motion.span>
+          {/* DIMENSION part */}
+          <div className="flex items-baseline">
+            <motion.span
+              custom={0.6}
+              variants={textVariant}
+              initial="hidden"
+              animate="visible"
+              className="text-[3.5rem] sm:text-[5rem] md:text-[7rem] lg:text-[8rem] font-bold tracking-tight leading-none"
+            >
+              DIMENSION
+            </motion.span>
+          </div>
+
         </div>
 
+        {/* Subtitle */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-0 md:mt-2 text-gray-300 tracking-[0.2em] md:tracking-[0.3em] text-base md:text-2xl font-light"
+          custom={0.8}
+          variants={textVariant}
+          initial="hidden"
+          animate="visible"
+          className="mt-64 tracking-[0.4em] text-gray-400 text-base text-center"
         >
           Future Dimensions
         </motion.p>
-
-
       </div>
     </section>
   );

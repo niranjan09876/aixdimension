@@ -5,7 +5,7 @@ import { BentoGrid, BentoGridItem } from "./ui/BentoGrid";
 import { useNavigate } from "react-router-dom";
 
 const projects = [
-  { title: "FinanceFlow", desc: "AI-powered financial dashboard for enterprise clients", color: "from-primary to-secondary", span: "md:col-span-2", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80", link: "/finance-flow" },
+  { title: "TextFlow", desc: "AI-powered text extraction tool", color: "from-primary to-secondary", span: "md:col-span-2", image: "/textflow_ai_banner.png", link: "/finance-flow" },
   { title: "HealthHub", desc: "Telehealth platform connecting patients with specialists", color: "from-accent to-primary", span: "md:col-span-1", image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" },
   { title: "EduSpark", desc: "Interactive learning platform for K-12 students", color: "from-secondary to-primary", span: "md:col-span-1", image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" },
   { title: "ShopSync", desc: "Omnichannel retail management system", color: "from-primary to-accent", span: "md:col-span-2", image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80" },

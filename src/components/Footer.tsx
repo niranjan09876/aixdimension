@@ -25,7 +25,7 @@ const Footer = () => (
               { Icon: XIcon, href: "https://x.com" },
               { Icon: Linkedin, href: "https://linkedin.com" },
               { Icon: Instagram, href: "https://instagram.com" },
-              { Icon: Github, href: "https://github.com" },
+              { Icon: Github, href: "https://github.com/niranjan09876/aixdimension" },
               { Icon: Facebook, href: "https://facebook.com" },
               { Icon: Youtube, href: "https://youtube.com" }
             ].map(({ Icon, href }, i) => (
