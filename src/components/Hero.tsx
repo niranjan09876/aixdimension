@@ -69,7 +69,7 @@ const Hero = () => {
               variants={textVariant}
               initial="hidden"
               animate="visible"
-              className="w-[125px] h-[4px] bg-white rounded-[2px] mt-1.5 mx-auto"
+              className="w-[180px] h-[6px] bg-white rounded-[2px] mt-0 mx-auto"
             />
           </div>
 
