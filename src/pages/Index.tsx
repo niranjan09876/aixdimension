@@ -19,10 +19,10 @@ const Index = () => (
     <Navbar />
     <Hero />
 
+    <Portfolio />
     <About />
     <Services />
     <Industries />
-    <Portfolio />
     <Process />
     <Testimonials />
     <Careers />
