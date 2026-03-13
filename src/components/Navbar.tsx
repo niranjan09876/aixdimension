@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ui/ThemeToggle";
 
 const links = ["About", "Services", "Portfolio", "Process", "Careers", "Contact"];
@@ -30,10 +30,7 @@ const Navbar = () => {
           }`}
       >
         <div className="container mx-auto flex items-center justify-between h-16 px-4">
-          <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-2 font-heading font-bold text-xl">
-            <div className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center">
-              <Zap size={16} className="text-primary-foreground" />
-            </div>
+          <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center font-heading font-bold text-xl">
             AI X Dimension
           </button>
 

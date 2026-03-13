@@ -109,7 +109,7 @@ const FinanceFlowOCR = () => {
                         transition={{ duration: 0.5, delay: 0.1 }}
                         className="text-4xl md:text-5xl font-bold mb-4 tracking-tight"
                     >
-                        Text Flow Tool <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600"></span>
+                        Summarizer Flow Tool <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600"></span>
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0 }}

@@ -21,7 +21,7 @@ const Hero = () => {
       <motion.div
         initial={{ y: "-100%" }}
         animate={{ y: "0%" }}
-        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 3.6, ease: [0.22, 1, 0.36, 1] }}
         className="absolute inset-0 w-full h-full bg-black z-0"
       />
 
@@ -55,7 +55,7 @@ const Hero = () => {
           {/* X part + underline */}
           <div className="flex flex-col items-center">
             <motion.span
-              custom={0.3}
+              custom={0.8}
               variants={textVariant}
               initial="hidden"
               animate="visible"
@@ -65,7 +65,7 @@ const Hero = () => {
             </motion.span>
             {/* Decorative Line under X */}
             <motion.div
-              custom={0.4}
+              custom={0.9}
               variants={textVariant}
               initial="hidden"
               animate="visible"
@@ -76,7 +76,7 @@ const Hero = () => {
           {/* DIMENSION part */}
           <div className="flex items-baseline">
             <motion.span
-              custom={0.6}
+              custom={0.4}
               variants={textVariant}
               initial="hidden"
               animate="visible"
@@ -90,7 +90,7 @@ const Hero = () => {
 
         {/* Subtitle */}
         <motion.p
-          custom={0.8}
+          custom={1.0}
           variants={textVariant}
           initial="hidden"
           animate="visible"
