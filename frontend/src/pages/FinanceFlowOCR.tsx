@@ -31,8 +31,8 @@ const FinanceFlowOCR = () => {
     };
 
     const handleFileSelected = (file: File) => {
-        if (!file.type.match(/image\/(jpeg|png|jpg)/)) {
-            toast.error("Invalid file type. Please upload a JPG or PNG.");
+        if (!file.type.match(/image\/(jpeg|png|jpg)/) && file.type !== "application/pdf") {
+            toast.error("Invalid file type. Please upload a JPG, PNG, or PDF.");
             return;
         }
         setSelectedImage(file);
@@ -142,14 +142,14 @@ const FinanceFlowOCR = () => {
                                     type="file"
                                     ref={fileInputRef}
                                     className="hidden"
-                                    accept="image/jpeg, image/png, image/jpg"
+                                    accept="image/jpeg, image/png, image/jpg, application/pdf"
                                     onChange={handleFileChange}
                                 />
                                 <div className="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                     <Upload className="text-blue-400" size={32} />
                                 </div>
                                 <p className="font-medium text-gray-300 text-center mb-2">Click or drag image to upload</p>
-                                <span className="text-xs text-gray-500">Supports JPG, JPEG, PNG</span>
+                                <span className="text-xs text-gray-500">Supports JPG, JPEG, PNG, PDF</span>
                             </div>
                         ) : (
                             <div className="flex-1 flex flex-col relative group rounded-xl overflow-hidden border border-[#333] min-h-[300px]">
