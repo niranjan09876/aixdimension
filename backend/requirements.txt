@@ -6,3 +6,10 @@ pillow
 transformers
 torch
 python-multipart
+numpy
+psycopg2-binary
+PyMuPDF
+pandas
+einops
+accelerate
+sentencepiece
